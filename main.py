@@ -14,7 +14,7 @@ from sklearn.svm import SVC
 
 
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # Suppress TensorFlow warnings
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  
 
 embedder = FaceNet()
 encoder = LabelEncoder()
@@ -45,7 +45,6 @@ faceloading = FACELOADING('faces')
 print("Loading classes...")
 X, Y = faceloading.load_classes()
 
-print(Y)
 
 
 def get_embedding(face_img):
@@ -90,3 +89,4 @@ for i in range(min(20, len(X_test))):
     confidence = max(probability)
     
     print(f"Sample {i+1}: Predicted '{predicted_name}' (confidence: {confidence:.2f}) | Actual: '{actual_name}'")
+faceloading.plot_images()
